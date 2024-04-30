@@ -1,0 +1,53 @@
+﻿@page
+@using ContactApp.Core.Extensions
+@model IndexPageModel
+@{
+    ViewData["Title"] = "Контрагенты";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<button class="primary-button-outlined" onclick="redirect('Counteragents/Create')"><span class="icon-plus"></span> Добавить</button>
+
+@if (Model.Counteragents != null && Model.Counteragents.Length > 0)
+{
+    <div class="data-view">
+        <h3>Список</h3>
+
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Дата создания</th>
+                <th>Дата изменения</th>
+                <th>Действия</th>
+            </tr>
+            @foreach (var counteragent in Model.Counteragents)
+            {
+                <tr>
+                    <td>@counteragent.Id</td>
+                    <td>@counteragent.Name</td>
+                    <td>@counteragent.CreationDate.ToLocalDateTime()</td>
+                    <td>@counteragent.UpdateDate.ToLocalDateTime()</td>
+                    <td>
+                        <p class="flex-row">
+                            <a class="nav-link" href="Counteragents/Edit/@counteragent.Id">Редактировать</a>
+                            <a class="nav-link nav-link-danger" href="Counteragents/Delete/@counteragent.Id">Удалить</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <p>Список контрагентов пуст...</p>
+}
+
+

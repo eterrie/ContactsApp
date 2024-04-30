@@ -1,0 +1,25 @@
+﻿@page
+@model ContactsApp.WebApplication.Pages.Counteragents.CreateModel
+@{
+    ViewData["Title"] = "Создание контрагента";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+<form class="form adaptive-width" method="post">
+    <div class="form-input">
+        <p class="form-input__label">Название контрагента</p>
+        <input type="text" name="counteragentName" placeholder="Введите название..." class="form-input__input input" />
+    </div>
+    <button class="primary-button">Создать</button>
+</form>
+

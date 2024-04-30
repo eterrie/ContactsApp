@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="~/css/index.css" />
+    <script type="text/javascript" src="/js/index.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <partial name="_Header" />
+
+        <main class="main container page">
+            <div class="main__content">
+                @RenderBody()
+            </div>
+        </main>
+
+        <partial name="_Footer" />
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

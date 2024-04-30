@@ -1,0 +1,39 @@
+﻿@page "/Counteragents/Edit/{id}"
+@using ContactApp.Core.Extensions
+
+@model ContactsApp.WebApplication.Pages.Counteragents.EditModel
+@{
+    ViewData["Title"] = "Редактирование контрагента";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if(Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+@if (Model.FoundCounteragent != null)
+{
+    <form class="form adaptive-width" method="post">
+        <div class="form-input">
+            <p class="form-input__label">Название контрагента</p>
+            <input type="text" name="counteragentName" placeholder="Введите название..." class="form-input__input input" value="@Model.FoundCounteragent.Name" />
+        </div>
+        <div class="form-input">
+            <p class="form-input__label">Дата создания</p>
+            <input type="text" class="form-input__input input input-disabled" value="@Model.FoundCounteragent.CreationDate.ToLocalDateTime()" disabled />
+        </div>
+        <div class="form-input">
+            <p class="form-input__label">Дата изменения</p>
+            <input type="text" class="form-input__input input input-disabled" value="@Model.FoundCounteragent.UpdateDate.ToLocalDateTime()" disabled />
+        </div>
+        <div class="line-container">
+            <button class="primary-button" type="submit">Сохранить</button>
+        </div>
+    </form>
+}

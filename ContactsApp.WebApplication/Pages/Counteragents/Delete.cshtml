@@ -1,0 +1,17 @@
+﻿@page "/Counteragents/Delete/{id}"
+@model ContactsApp.WebApplication.Pages.Counteragents.DeleteModel
+@{
+    ViewData["Title"] = "Удаление контрагента";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+

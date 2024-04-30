@@ -1,0 +1,54 @@
+﻿@page
+@model ContactsApp.WebApplication.Pages.Contacts.CreateModel;
+@{
+    ViewData["Title"] = "Создание контакта";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
+
+<form class="form adaptive-width" method="post">
+    <div class="form-input">
+        <p class="form-input__label">Email</p>
+        <input type="text" name="email" placeholder="example@email.com" class="form-input__input input" />
+    </div>
+    <div class="form-input">
+        <p class="form-input__label">Имя</p>
+        <input type="text" name="name" placeholder="Введите имя контакта..." class="form-input__input input" />
+    </div>
+    <div class="form-input">
+        <p class="form-input__label">Фамилия</p>
+        <input type="text" name="lastname" placeholder="Введите фамилию контакта..." class="form-input__input input" />
+    </div>
+    <div class="form-input">
+        <p class="form-input__label">Отчество</p>
+        <input type="text" name="patronymic" placeholder="Введите отчество контакта..." class="form-input__input input" />
+    </div>
+    <div class="form-input">
+        <p class="form-input__label">Контрагент</p>
+        <div class="select-container" >
+            <select name="counteragentId" id="counteragent-select" class="select">
+                <option value="">Выберите контрагента...</option>
+                @if(Model.Counteragents != null && Model.Counteragents.Length > 0)
+                {
+                    @foreach(var counteragent in Model.Counteragents)
+                    {
+                        <option value="@counteragent.Id">@counteragent.Name</option>
+                    }
+                }
+            </select>
+            <span class="icon icon-arrow-down"></span>
+        </div>
+    </div>
+
+
+    <button class="primary-button">Создать</button>
+</form>

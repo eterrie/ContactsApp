@@ -1,0 +1,66 @@
+﻿@page
+@using ContactApp.Core.Extensions
+@model ContactsApp.WebApplication.Pages.Contacts.IndexModel
+@{
+    ViewData["Title"] = "Контакты";
+}
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<button class="primary-button-outlined" onclick="redirect('Contacts/Create')"><span class="icon-plus"></span> Добавить</button>
+
+<div class="double-list">
+    <div class="double-list__left list">
+        <h3>Список контрагентов</h3>
+
+        <a class="nav-link" asp-page="/Contacts/Index">Очистить фильтр</a>
+
+        @if(Model.Counteragents != null && Model.Counteragents.Length > 0)
+        {
+            @foreach(var counteragent in Model.Counteragents)
+            {
+                <a class="list__item" asp-page="/Contacts/Index" asp-route-counteragentId="@counteragent.Id">
+                    <p>@counteragent.Name</p>
+                    <p class="icon icon-arrow-right"></p>
+                </a>
+            }
+        }
+        else
+        {
+            <p>Список контрагентов пуст...</p>
+        }
+    </div>
+
+    <div class="double-list__right list">
+        <h3>Список контактов</h3>
+
+        @if(Model.Contacts != null && Model.Contacts.Length > 0)
+        {
+            <div class="data-view">
+                @foreach (var contact in Model.Contacts)
+                {
+                    <div class="result-value">
+
+                        <p>Id: <span class="white-selection">@contact.Id</span></p>
+                        <p>Email: <span class="white-selection">@contact.Email</span></p>
+                        <p>ФИО: <span class="white-selection">@contact.GetShortName()</span></p>
+                        <p>Дата создания: <span class="white-selection">@contact.CreationDate.ToLocalDateTime()</span></p>
+                        <p>Дата изменения: <span class="white-selection">@contact.UpdateDate.ToLocalDateTime()</span></p>
+                        <p class="flex-row">
+                            <button class="primary-button-outlined" onclick="redirect('Contacts/Edit/@contact.Id')">Редактировать</button>
+                            <button class="danger-button-outlined" onclick="redirect('Contacts/Delete/@contact.Id')">Удалить</button>
+                        </p>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>Список контактов пуст...</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿@page "/Contacts/Delete/{id}"
+@model ContactsApp.WebApplication.Pages.Contacts.DeleteModel
+@{
+    ViewData["Title"] = "Удаление контакта";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success">@Model.SuccessMessage</div>
+}
