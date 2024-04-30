@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ContactsApp.WebApplication.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20240430084714_CascadeDeleteChanges")]
-    partial class CascadeDeleteChanges
+    [Migration("20240430092641_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace ContactsApp.WebApplication.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 30, 8, 47, 13, 811, DateTimeKind.Utc).AddTicks(2991));
+                        .HasDefaultValue(new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(3052));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -60,7 +60,7 @@ namespace ContactsApp.WebApplication.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 30, 8, 47, 13, 811, DateTimeKind.Utc).AddTicks(4239));
+                        .HasDefaultValue(new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(4274));
 
                     b.HasKey("Id");
 
@@ -83,7 +83,7 @@ namespace ContactsApp.WebApplication.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 30, 8, 47, 13, 811, DateTimeKind.Utc).AddTicks(5931));
+                        .HasDefaultValue(new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(5915));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -92,7 +92,7 @@ namespace ContactsApp.WebApplication.Migrations
                     b.Property<DateTime>("UpdateDate")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2024, 4, 30, 8, 47, 13, 811, DateTimeKind.Utc).AddTicks(6778));
+                        .HasDefaultValue(new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(6792));
 
                     b.HasKey("Id");
 

@@ -19,8 +19,8 @@ namespace ContactsApp.WebApplication.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
-                    UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 4, 30, 8, 15, 42, 104, DateTimeKind.Utc).AddTicks(6497))
+                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(5915)),
+                    UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(6792))
                 },
                 constraints: table =>
                 {
@@ -37,8 +37,8 @@ namespace ContactsApp.WebApplication.Migrations
                     Lastname = table.Column<string>(type: "text", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Patronymic = table.Column<string>(type: "text", nullable: false),
-                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
-                    UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
+                    CreationDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(3052)),
+                    UpdateDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2024, 4, 30, 9, 26, 41, 759, DateTimeKind.Utc).AddTicks(4274)),
                     CounteragentId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
