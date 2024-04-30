@@ -32,12 +32,12 @@ namespace ContactsApp.Data.Configurations
             builder.Property(contact => contact.CreationDate);
 
             builder.Property(contact => contact.CreationDate)
-                .HasDefaultValue(DateTime.UtcNow)
+                .HasDefaultValueSql("now()")
                 .ValueGeneratedOnAdd();
 
             builder.Property(contact => contact.UpdateDate)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValue(DateTime.UtcNow);
+                .HasDefaultValueSql("now()");
         }
     }
 }

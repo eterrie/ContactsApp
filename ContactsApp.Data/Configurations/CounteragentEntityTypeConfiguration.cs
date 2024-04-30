@@ -20,12 +20,12 @@ namespace ContactsApp.Data.Configurations
                 .IsRequired();
 
             builder.Property(counteragent => counteragent.CreationDate)
-                .ValueGeneratedOnAdd()
-                .HasDefaultValue(DateTime.UtcNow);
+                .HasDefaultValueSql("now()")
+                .ValueGeneratedOnAdd();
 
             builder.Property(counteragent => counteragent.UpdateDate)
                 .ValueGeneratedOnAddOrUpdate()
-                .HasDefaultValue(DateTime.UtcNow);
+                .HasDefaultValueSql("now()");
         }
     }
 }
