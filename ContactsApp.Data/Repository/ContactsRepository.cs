@@ -73,9 +73,8 @@ namespace ContactsApp.Data.Repository
 
         public void Update(Contact entity)
         {
-            applicationContext.Database.ExecuteSqlRaw
-                (@"UPDATE ""Contacts"" SET ""UpdateDate""='now()' WHERE ""Id""={0}", entity.Id);
             applicationContext.Contacts.Update(entity);
+            applicationContext.Contacts.Where(counteragent => counteragent.Id == entity.Id).ExecuteUpdate(s => s.SetProperty(c => c.UpdateDate, DateTime.UtcNow));
         }
 
         public async ValueTask DisposeAsync()
